@@ -1,10 +1,10 @@
 from src.constants import BANWORDS
-from src.sorts import bubble_sort, quick_sort, counting_sort, radix_sort, bucket_sort, heap_sort
+from src.sorts import bubble_sort, quick_sort, counting_sort, radix_sort, bucket_sort, heap_sort # noqa: F401
 from src.stack import LinkedList
 
 def main() -> None:
     """
-    Обязательнная составляющая программ, которые сдаются. Является точкой входа в приложение
+    Обязательнная составляющая программ, которые сдаются. Является точкой входа в приложение.
     :return: Данная функция ничего не возвращает
     """
     node_mode = False
@@ -50,11 +50,11 @@ def main() -> None:
                     value = s[1]
                     try:
                         if "." in value:
-                            value = float(value)
+                            value_for_list = float(value)
                         else:
-                            value = int(value)
-                        linked_list.push(value)
-                    except:
+                            value_for_list = int(value)
+                        linked_list.push(value_for_list)
+                    except TypeError:
                         raise SyntaxError
             else:
                 for i in BANWORDS:

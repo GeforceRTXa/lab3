@@ -61,7 +61,7 @@ def quick_sort(a: list, comp=default_comp, flag=lambda x: x):
     for num in nums:
         try:
             expr = comp(flag(pivot), flag(num))
-        except:
+        except TypeError:
             raise ValueError("Incorrect flag or comparator for your list")
         comp_checker(expr)
         if expr == 1 or expr == 0:
@@ -111,7 +111,7 @@ def radix_sort(a: list[int], base: int):
         max_digits += 1
         max_num //= base
     for i in range(max_digits):
-        digits_sorting = [[] for _ in range(base)]
+        digits_sorting: list = [[] for _ in range(base)]
         for num in nums:
             current_digit = (num // (base ** i)) % base
             digits_sorting[current_digit].append(num)
@@ -169,7 +169,7 @@ def heap(arr, n, i, flag, comp):
     if left < n:
         try:
             comp_l = comp(flag(arr[left]), flag(arr[root]))
-        except:
+        except TypeError:
             raise ValueError("Incorrect flag or comparator for your list")
         comp_checker(comp_l)
         if comp_l == 1:
@@ -177,7 +177,7 @@ def heap(arr, n, i, flag, comp):
     if right < n:
         try:
             comp_l = comp(flag(arr[right]), flag(arr[root]))
-        except:
+        except TypeError:
             raise ValueError("Incorrect flag or comparator for your list")
         comp_checker(comp_l)
         if comp_l == 1:
