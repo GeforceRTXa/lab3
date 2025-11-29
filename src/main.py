@@ -13,7 +13,9 @@ def main() -> None:
         try:
             command = input("Введите вашу команду: ")
             if command == "node_mode":
+                print("Your mode is now node_mode")
                 node_mode = True
+                continue
             if node_mode:
                 s = command.split()
                 if len(s) == 0:
@@ -44,6 +46,7 @@ def main() -> None:
                     linked_list = LinkedList()
                     print("Your mode now is sort_mode")
                     node_mode = False
+                    continue
                 elif s[0] == "push":
                     if len(s) != 2:
                         raise SyntaxError
@@ -56,6 +59,8 @@ def main() -> None:
                         linked_list.push(value_for_list)
                     except TypeError:
                         raise SyntaxError
+                else:
+                    raise SyntaxError
             else:
                 for i in BANWORDS:
                     if i in command:

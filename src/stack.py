@@ -50,12 +50,16 @@ class LinkedList:
         """
         :return: минимальный элемент списка
         """
+        if self.is_empty():
+            raise IndexError("LinkedList is empty")
         return self.min_arr[-1]
 
     def peek(self):
         """
         :return: Последний элемент списка
         """
+        if self.is_empty():
+            raise IndexError("LinkedList is empty")
         return self.first.value
 
     def __len__(self):
