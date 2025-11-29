@@ -1,1 +1,1 @@
-SAMPLE_CONSTANT: int = 10
+BANWORDS = ["import", "for", "while", "eval", "exec", "range", "input"]
